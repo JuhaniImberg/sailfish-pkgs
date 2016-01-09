@@ -1,0 +1,25 @@
+Name: libmodplug
+Summary: A MOD rendering library
+Version: 0.8.8.5
+Release: 1
+Group: Development/Libraries
+License: Public Domain
+URL: http://modplug-xmms.sourceforge.net/
+
+Sources:
+    - https://downloads.sourceforge.net/project/modplug-xmms/%{name}/%{version}/%{name}-%{version}.tar.gz
+
+Files:
+    - "%{_libdir}/libmodplug.so*"
+
+Configure: configure
+Builder: make
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: Development files for %{name}.
+      Files:
+        - "%{_libdir}/pkgconfig/libmodplug.pc"
+        - "%{_includedir}/%{name}/"
