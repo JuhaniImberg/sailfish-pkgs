@@ -1,0 +1,34 @@
+Name: physfs
+Summary: Filesystem abstraction library
+Version: 2.0.3
+Release: 1
+Group: Development/Libraries
+License: zlib
+URL: https://icculus.org/physfs/
+
+Sources:
+  - https://icculus.org/%{name}/downloads/%{name}-%{version}.tar.bz2
+
+Files:
+  - "%{_libdir}/libphysfs.*"
+
+Requires:
+  - zlib
+
+PkgConfigBR:
+  - zlib
+
+PkgBR:
+  - cmake
+
+Configure: cmake
+Builder: make
+
+SubPackages:
+  - Name: devel
+    Group: Development/Libraries
+    Summary: Development files for %{name}
+    Description: Development files for %{name}.
+    Files:
+      - "%{_bindir}/*"
+      - "%{_includedir}/*"
