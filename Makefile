@@ -9,7 +9,7 @@ SPECIFY_FLAGS = -N -n
 
 DL_SOURCES = ./dl-sources
 
-YAMLS = libmodplug.yaml stow.yaml
+YAMLS = $(wildcard *.yaml)
 NAMES = $(YAMLS:.yaml=)
 SPEC_NAMES = $(YAMLS:.yaml=.spec)
 
