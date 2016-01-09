@@ -1,0 +1,42 @@
+Name: love
+Summary: 2D game framework
+Version: 0.10.0
+Release: 1
+Group: Development/Libraries
+License: zlib
+URL: https://love2d.org/
+
+Sources:
+  - https://bitbucket.org/rude/love/downloads/%{name}-%{version}-linux-src.tar.gz
+
+Requires:
+  - lua
+  - freetype
+  - libvorbis
+  - libtheora
+  - libmodplug
+  - physfs
+  - OpenAL
+
+PkgConfigBR:
+  - freetype2
+  - lua
+  - vorbis
+  - theora
+
+PkgBR:
+  - SDL2-devel
+  - libmodplug-devel
+  - physfs-devel
+  - OpenAL-devel
+
+Configure: configure
+ConfigOptions:
+  - --disable-mpg123
+  - --with-lua=lua
+Builder: make
+
+Files:
+  - "%{_bindir}/love"
+  - "%{_libdir}/liblove*"
+  - "%{_datadir}/*"
