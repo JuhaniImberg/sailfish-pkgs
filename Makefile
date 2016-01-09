@@ -13,14 +13,12 @@ YAMLS = $(wildcard *.yaml)
 NAMES = $(YAMLS:.yaml=)
 SPEC_NAMES = $(YAMLS:.yaml=.spec)
 
-.PHONY: $(NAMES) $(YAMLS) clean
+.PHONY: $(NAMES) clean
 
 clean:
 	rm $(SOURCES_DIR)/*
 
-$(YAMLS):
-	$(SPECIFY) $(SPECIFY_FLAGS) $@ -o $(SPECS_DIR)/$(@:.yaml=.spec)
-	$(DL_SOURCES) $@
-
 $(NAMES):
-	$(RPMBUILD) $(RPMBUILD_FLAGS) SPECS/$@.spec
+        $(SPECIFY) $(SPECIFY_FLAGS) $@.yaml -o $(SPECS_DIR)/$@.spec
+        $(DL_SOURCES) $@.yaml
+	$(RPMBUILD) $(RPMBUILD_FLAGS) $(SPECS_DIR)/$@.spec
