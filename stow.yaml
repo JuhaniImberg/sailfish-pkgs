@@ -1,0 +1,23 @@
+Name: stow
+Summary: Symlink farm manager
+URL: https://www.gnu.org/software/stow/
+Version: 2.2.2
+Release: 1
+Group: Applications/File
+License: GPLv2+
+
+Sources:
+  - https://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+
+Requires:
+  - perl
+
+PkgBR:
+  - perl
+
+Configure: configure
+Builder: make
+
+Files:
+  - "%{_bindir}/*"
+  - "%{_datadir}/*"
