@@ -19,6 +19,6 @@ clean:
 	rm $(SOURCES_DIR)/*
 
 $(NAMES):
-        $(SPECIFY) $(SPECIFY_FLAGS) $@.yaml -o $(SPECS_DIR)/$@.spec
-        $(DL_SOURCES) $@.yaml
+	$(SPECIFY) $(SPECIFY_FLAGS) $@.yaml -o $(SPECS_DIR)/$@.spec
+	$(DL_SOURCES) $@.yaml
 	$(RPMBUILD) $(RPMBUILD_FLAGS) $(SPECS_DIR)/$@.spec
